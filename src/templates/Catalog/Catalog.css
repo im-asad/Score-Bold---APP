@@ -1,0 +1,37 @@
+.catalog {
+    margin: 10px 0;
+    padding: 0 100px;
+}
+.catalog .gutter-row {
+    margin: 20px 0 !important   ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 380px;
+}
+
+.catalog .select-container {
+    float: left;
+    display: flex;
+}
+
+.catalog .search-container {
+    float: right;
+}
+
+@media only screen and (max-width: 767px) {
+    .catalog {
+        margin: 10px 0;
+        padding: 0;
+    }
+
+    .catalog .select-container {
+        float: unset;
+        width: 100%;
+    }
+
+    .catalog .search-container {
+        float: unset;
+        width: 100%;
+    }
+}

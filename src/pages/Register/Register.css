@@ -1,0 +1,59 @@
+.register-page-row {
+    height: 100vh!important;
+}
+
+.register-page-row .ant-col {
+    height: 100%;
+}
+
+.register-page-row .ant-col.form-col {
+    background: #242E43;
+    display: flex
+}
+
+.register-page-row .ant-col.form-col .register-form {
+    width: 65%;
+    margin: auto;
+}
+
+.register-page-row .ant-col.form-col .register-form .ant-form-item {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.register-page-row .ant-col.form-col .register-form .ant-form-item input {
+    border-radius: 2px;
+    background: #20293D;
+    border: 1px solid #5E6b7D;
+    color: #5E6b7D;
+}
+
+.register-page-row .ant-col.form-col .register-form .ant-form-item input::placeholder {
+    color: #5E6b7D;
+}
+
+.register-page-row .ant-col.form-col .register-form .ant-form-item .anticon {
+    color: #5E6b7D;
+}
+
+.register-page-row .ant-col.form-col .register-form .register-form-link {
+    text-decoration: underline;
+}
+
+.register-page-row .ant-col.form-col .register-form .register-form-link.right {
+    float: right;
+}
+
+.ant-col .ant-form-item-label {
+    width: 100%;
+    text-align: left;
+}
+
+.register-page-row.ant-row .ant-form-item {
+    text-align: left;
+}
+
+.register-page-row.ant-row .ant-form-item .ant-form-item-label > label {
+    color: #5E6b7D;
+    font-weight: 600;
+}

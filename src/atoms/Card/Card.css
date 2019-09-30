@@ -1,0 +1,21 @@
+.product-card .ant-card-cover {
+    height: 220px;
+}
+
+.product-card {
+    margin: 0 auto!important;
+    width: 100%!important;
+    height: 100%;
+}
+
+.education-card .label {
+    position: absolute;
+    bottom: 60px;
+    left: 20px;
+    width: 50px;
+    background-color:rgba(192,192,192,0.3);
+    color: #FFFFFF;
+    padding: 2px 8px;
+    font-weight: 600;
+    border-radius: 4px;
+}

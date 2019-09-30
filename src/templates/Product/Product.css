@@ -1,0 +1,23 @@
+@media only screen and (max-width: 1220px) {
+    .product-stats-row .ant-col {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .product-stats-row .ant-col {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .product-detail-tabs button {
+        width: 100px;
+    }
+
+    .product-detail-header {
+        width: 100%;
+    }
+}
