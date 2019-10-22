@@ -31,7 +31,6 @@ class Sidebar extends React.Component {
                 <div style={{marginTop: '25px'}}>
                     <img src="/logo.png" width="35px"/>
                 </div>
-                <Divider />
                 {/*<Menu.Item key="1">*/}
                     {/*<Icon type="home" />*/}
                     {/*<span>Home</span>*/}

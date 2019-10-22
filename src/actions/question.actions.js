@@ -8,18 +8,17 @@ export const ERROR = 'ERROR';
 
 const API_URL = ``;
 
-export function addQuestion(question, chapterId)
+export function addQuestion(question, {chapterId, courseId})
 {
     return async (dispatch, getState) => {
         dispatch({
             type: ADDING_QUESTION,
         });
 
-        const response = await axios.post(`${API_URL}/api/question/${chapterId}`, question);
+        const response = await axios.post(`${API_URL}/api/question/${courseId}/${chapterId}`, question);
         if (response.status === 200) {
             const {chapterQuestions} = getState().course;
             chapterQuestions.push(response.data.question);
-            console.log(chapterQuestions);
             return dispatch({
                 type: ADDED_QUESTION,
                 payload: {chapterQuestions}

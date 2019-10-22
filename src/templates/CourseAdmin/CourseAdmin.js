@@ -52,6 +52,7 @@ class CourseAdmin extends React.Component {
                 </Col>
             )
         });
+        
         return (
             <CoursesContainer>
                 <Divider>Courses</Divider>

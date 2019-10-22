@@ -34,9 +34,9 @@ class FormModal extends React.Component {
 
     render() {
         const {loading, handleClose, fields, title} = this.props;
-        const FormItems = !fields ? null : fields.map((field) => {
+        const FormItems = !fields ? null : fields.map((field, index) => {
             return (
-                <FormItem getFieldDecorator={this.props.form.getFieldDecorator} field={field}/>
+                <FormItem key={index} getFieldDecorator={this.props.form.getFieldDecorator} field={field}/>
             )
         });
         return (

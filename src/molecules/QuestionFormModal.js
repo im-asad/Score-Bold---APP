@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Form, Input, Modal, Tooltip, Select} from "antd";
+import {Button, Form, Input, Modal, Tooltip, Select, Col, Row, Upload, Icon} from "antd";
 import connect from "react-redux/es/connect/connect";
 import {bindActionCreators} from "redux";
 
@@ -8,7 +8,10 @@ class FormModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            options: []
+            options: [],
+            fileList: [],
+            originalFileList: null,
+            files: {}
         }
     }
 
@@ -18,7 +21,7 @@ class FormModal extends React.Component {
         this.props.form.validateFields((err, values) => {
             console.log("THESE ARE THE VALUES: ", values);
             if (!err) {
-                this.props.handleSubmit(values, this.state.options);
+                this.props.handleSubmit(values, this.state.files, this.state.options);
             }
         });
     };
@@ -35,23 +38,57 @@ class FormModal extends React.Component {
         this.setState({options});
     };
 
+    fileUpload = (fileFor) => (e) => {
+        console.log("CHANGED: ", e);
+        const {originalFileList} = this.state;
+    };
+
+    onUploadStatusChange = (e) => {
+        const {file} = e;
+        const {files} = this.state;
+        if (file.response && file.response.data) {
+            const location = file.response.data.Location;
+            const fileFor = file.response.fileFor;
+            files[fileFor] ? files[fileFor].push(location) : files[fileFor] = [location];
+            this.setState({files})
+        }
+    };
+
     render() {
+        console.log("THIS.STATE: ", this.state);
         const {options} = this.state;
         const {handleClose, title, handleCorrectAnswerChange} = this.props;
         const {getFieldDecorator} = this.props.form;
 
+        const props = {
+            action: 'http://localhost:7000/api/upload',
+            listType: 'picture',
+            defaultFileList: [...this.state.fileList],
+            className: 'upload-list-inline',
+            onChange: this.onUploadStatusChange,
+        };
+
         const Options = options.map((option) => {
             return (
-                <Form.Item label={option.name} colon={false}>
-                    {getFieldDecorator(option.name, {
-                        rules: [{ message: "Please enter a question!" }],
-                    })(
-                        <Input
-                            placeholder={option.name}
-                            autoComplete="off"
-                        />,
-                    )}
-                </Form.Item>
+                <React.Fragment>
+                    <Form.Item label={option.name} colon={false}>
+                        {getFieldDecorator(option.name, {
+                            rules: [{ message: "Please enter a question!" }],
+                        })(
+                            <Input
+                                placeholder={option.name}
+                                autoComplete="off"
+                            />,
+                        )}
+                    </Form.Item>
+                    <Form.Item label={`${option.name} Image`} colon={false}>
+                        <Upload onChange={this.fileUpload(option.name)} {...props} data={{fileFor: option.name}}>
+                            <Button>
+                                <Icon type="upload" /> Upload
+                            </Button>
+                        </Upload>
+                    </Form.Item>
+                </React.Fragment>
             )
         });
 
@@ -71,8 +108,16 @@ class FormModal extends React.Component {
                                 <Input
                                     placeholder={"Question"}
                                     autoComplete="off"
-                                />,
+                                />
                             )}
+                        </Form.Item>
+
+                        <Form.Item label="Question Image" colon={false}>
+                            <Upload onChange={this.fileUpload("question")} {...props} data={{fileFor: 'question'}}>
+                                <Button>
+                                    <Icon type="upload" /> Upload
+                                </Button>
+                            </Upload>
                         </Form.Item>
 
                         {Options}

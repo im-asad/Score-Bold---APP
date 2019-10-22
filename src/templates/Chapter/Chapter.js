@@ -26,8 +26,9 @@ class Chapter extends React.Component {
         this.setState({questionModalIsOpen: true});
     };
 
-    handleSubmit = (form, options) => {
+    handleSubmit = (form, files, options) => {
         let formOptions = [];
+        const {courseId} = this.props.match.params;
         for (let i = 0; i < options.length; i++) {
             formOptions.push(form[options[i].name]);
         }
@@ -35,10 +36,11 @@ class Chapter extends React.Component {
         const data = {
             formOptions,
             question: form.question,
+            files,
             correctAnswerIndex: this.state.correctAnswerIndex
         };
         const {chapterId} = this.props.chapter;
-        this.props.addQuestion(data, chapterId);
+        this.props.addQuestion(data, {chapterId, courseId});
         this.setState({questionModalIsOpen: false});
     };
 
