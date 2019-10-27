@@ -5,10 +5,6 @@ import {Link} from "react-router-dom";
 import {EducationCard} from "../../atoms/Card/Card";
 
 class Education extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div className="catalog">

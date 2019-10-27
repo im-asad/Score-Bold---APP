@@ -57,7 +57,7 @@ class ProductDetail extends React.Component {
                                 {/*<video style={{width: '100%', height: '170px', marginBottom: '16px'}} controls>*/}
                                     {/*<source type="video/mp4" />*/}
                                 {/*</video>*/}
-                                {(product["Ad Copy Image"] && product["Ad Copy Image"].length > 0) && <img src={product["Ad Copy Image"][0].url} style={{width: '100%', height: '170px', marginBottom: '16px'}}/> }
+                                {(product["Ad Copy Image"] && product["Ad Copy Image"].length > 0) && <img alt="" src={product["Ad Copy Image"][0].url} style={{width: '100%', height: '170px', marginBottom: '16px'}}/> }
                                 <br/>
                                 {/*<TabButton active block>Download Attachment</TabButton>*/}
                             </Col>
@@ -66,7 +66,7 @@ class ProductDetail extends React.Component {
                                     {product["Ad Creative"]}
                                 </div>
                                 <br/>
-                                <a className="underline">Copy text</a>
+                                <span className="underline">Copy text</span>
                             </Col>
                         </Row>
                     </div>}

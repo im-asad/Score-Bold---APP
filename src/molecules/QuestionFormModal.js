@@ -19,7 +19,6 @@ class FormModal extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
-            console.log("THESE ARE THE VALUES: ", values);
             if (!err) {
                 this.props.handleSubmit(values, this.state.files, this.state.options);
             }
@@ -39,7 +38,6 @@ class FormModal extends React.Component {
     };
 
     fileUpload = (fileFor) => (e) => {
-        console.log("CHANGED: ", e);
         const {originalFileList} = this.state;
     };
 
@@ -55,7 +53,6 @@ class FormModal extends React.Component {
     };
 
     render() {
-        console.log("THIS.STATE: ", this.state);
         const {options} = this.state;
         const {handleClose, title, handleCorrectAnswerChange} = this.props;
         const {getFieldDecorator} = this.props.form;

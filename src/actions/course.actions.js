@@ -18,7 +18,6 @@ export function addCourse(course)
         });
 
         const response = await axios.post(`${API_URL}/api/course`, course);
-        console.log("THIS IS THE RESPONSE: ", response);
         if (response.status === 200) {
             const {courses} = getState().course;
             courses.push(response.data.course);

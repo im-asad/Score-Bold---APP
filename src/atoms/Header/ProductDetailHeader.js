@@ -3,7 +3,6 @@ import styled from "styled-components";
 import {Divider, Icon} from "antd";
 
 import {KeyValue} from "../KeyValue/KeyValue";
-import Dashboard from "../../pages/Dashboard/Dashboard";
 
 const Header = styled.div`
     font-size: 20px;

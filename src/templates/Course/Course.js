@@ -57,7 +57,6 @@ class Course extends React.Component {
 
     render() {
         const {chapters} = this.props;
-        console.log("THIS PROPS: ", this.props);
         return (
             <div className="course">
                 <Row gutter={24}>
@@ -65,7 +64,7 @@ class Course extends React.Component {
                     <br/>
                     <Col xs={{span: 24}} md={{span: 24}} lg={{span: 24}} xl={{span: 16}} className="left-align">
                         <div className="course-video-container">
-                            <iframe className="course-video" src="https://www.youtube.com/embed/Dmq88kA5NxQ"
+                            <iframe title="video-title" className="course-video" src="https://www.youtube.com/embed/Dmq88kA5NxQ"
                                     allowFullScreen />
                         </div>
                         <div>
@@ -87,7 +86,7 @@ class Course extends React.Component {
                             size="large"
                             pagination={{
                                 onChange: page => {
-                                    console.log(page);
+
                                 },
                                 pageSize: 3,
                             }}
