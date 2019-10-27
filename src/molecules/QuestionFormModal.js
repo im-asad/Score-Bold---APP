@@ -149,6 +149,17 @@ class FormModal extends React.Component {
                             </Select>
                         </Form.Item> }
 
+                        {options.length > 0 && <Form.Item>
+                            {getFieldDecorator('reason', {
+                                rules: [{ message: "Please enter the reason, why is this option correct!" }],
+                            })(
+                                <Input
+                                    placeholder={"Reason"}
+                                    autoComplete="off"
+                                />
+                            )}
+                        </Form.Item> }
+
                         <Form.Item style={{marginBottom: '0'}}>
                             <Button onClick={this.handleSubmit} type="submit" className="blue-button" block>
                                 <span>Submit</span>

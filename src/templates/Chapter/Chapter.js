@@ -30,7 +30,7 @@ class Chapter extends React.Component {
         let formOptions = [];
         const {courseId} = this.props.match.params;
         for (let i = 0; i < options.length; i++) {
-            formOptions.push(form[options[i].name]);
+            formOptions.push({value: form[options[i].name], name: options[i].name});
         }
 
         const data = {
@@ -63,6 +63,15 @@ class Chapter extends React.Component {
             return (
                 <div key={question.questionId}>
                     <div><b>{index+1}. </b><b>{question.question}</b></div>
+
+                    {question.Media.map((media) => {
+                        return (
+                            <div key={media.mediaId}>
+                                <img src={media.url} alt="" style={{height: '50px', width: '50px', objectFit: 'cover'}}/>
+                            </div>
+                        )
+                    })}
+
                     {question.answers.map((answer) => {
                         return (
                             <div key={answer.answerId}>
@@ -74,6 +83,15 @@ class Chapter extends React.Component {
                                 >
                                     {answer.answer}
                                 </Checkbox>
+
+                                {answer.Media.map((media) => {
+                                    return (
+                                        <div key={media.mediaId}>
+                                            <img src={media.url} alt="" style={{height: '50px', width: '50px', objectFit: 'cover'}}/>
+                                        </div>
+                                    )
+                                })}
+
                             </div>
                         )
                     })}
